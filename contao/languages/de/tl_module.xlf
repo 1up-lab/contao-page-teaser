@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xliff version="1.1">
+    <file datatype="php" original="system/modules/core/languages/de/tl_module.php" source-language="de">
+    <body>
+        <trans-unit id="tl_module.teasers_legend">
+            <target>Seitenvorschau</target>
+        </trans-unit>
+
+        <trans-unit id="tl_module.teasers.0">
+            <target>Seiten auswählen</target>
+        </trans-unit>
+        <trans-unit id="tl_module.teasers.1">
+            <target>Diese Seiten werden für die Darstellung verwendet.</target>
+        </trans-unit>
+
+        <trans-unit id="tl_module.teasers_template.0">
+            <target>Template auswählen</target>
+        </trans-unit>
+        <trans-unit id="tl_module.teasers_template.1">
+            <target>Dieses Template wird für die Darstellung verwendet.</target>
+        </trans-unit>
+    </body>
+    </file>
+</xliff>

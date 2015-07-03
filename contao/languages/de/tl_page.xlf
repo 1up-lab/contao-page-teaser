@@ -1,0 +1,60 @@
+<?xml version="1.0" ?>
+<xliff version="1.1">
+    <file datatype="php" original="system/modules/core/languages/en/tl_page.php" source-language="en">
+        <body>
+            <trans-unit id="tl_page.pageteaser_legend">
+                <source>Image settings</source>
+                <target>Vorschaubild-Einstellungen</target>
+            </trans-unit>
+            <trans-unit id="tl_page.addImage.0">
+                <source>Add a preview image</source>
+                <target>Vorschaubild hinzfügen</target>
+            </trans-unit>
+            <trans-unit id="tl_page.addImage.1">
+                <source>This image will be used for the page preview element.</source>
+                <target>Dieses Bild für die Seitenvorschauelemente verwendet.</target>
+            </trans-unit>
+            <trans-unit id="tl_page.singleSRC.0">
+                <source>Source file</source>
+                <target>Quelldatei</target>
+            </trans-unit>
+            <trans-unit id="tl_page.singleSRC.1">
+                <source>Please select a file from the files directory.</source>
+                <target>Bitte wählen Sie eine Datei aus der Dateiübersicht.</target>
+            </trans-unit>
+            <trans-unit id="tl_page.alt.0">
+                <source>Alternate text</source>
+                <target>Alternativer Text</target>
+            </trans-unit>
+            <trans-unit id="tl_page.alt.1">
+                <source>Here you can enter an alternate text for the image (&lt;em&gt;alt&lt;/em&gt; attribute).
+                </source>
+                <target>Hier können Sie einen alternativen Text für das Bild eingeben (&lt;em&gt;alt&lt;/em&gt;-Attribut).</target>
+            </trans-unit>
+            <trans-unit id="tl_page.imageTitle.0">
+                <source>Title</source>
+                <target>Titel</target>
+            </trans-unit>
+            <trans-unit id="tl_page.imageTitle.1">
+                <source>Here you can enter the image title (&lt;em&gt;title&lt;/em&gt; attribute).</source>
+                <target>Hier können Sie den Titel des Bildes eingeben (&lt;em&gt;title&lt;/em&gt;-Attribut).</target>
+            </trans-unit>
+            <trans-unit id="tl_page.size.0">
+                <source>Image width and height</source>
+                <target>Bildbreite und Bildhöhe</target>
+            </trans-unit>
+            <trans-unit id="tl_page.size.1">
+                <source>Here you can set the image dimensions and the resize mode.</source>
+                <target>Hier können Sie die Abmessungen des Bildes und den Skalierungsmodus festlegen.</target>
+            </trans-unit>
+            <trans-unit id="tl_page.previewText.0">
+                <source>Preview text</source>
+                <target>Vorschautext</target>
+            </trans-unit>
+            <trans-unit id="tl_page.previewText.1">
+                <source>Here you can set the preview text.</source>
+                <target>Hier können Sie den Vorschautext erfassen.</target>
+            </trans-unit>
+        </body>
+    </file>
+</xliff>

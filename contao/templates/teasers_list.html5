@@ -1,0 +1,9 @@
+<div class="teasers-list">
+    <ul>
+        <?php foreach ($this->teasers as $teaser): ?>
+        <li>
+            <a href="<?php echo $this->generateFrontendUrl($teaser->row()); ?>" title="<?php echo $teaser->title; ?>"><?php echo $teaser->title; ?></a>
+        </li>
+        <?php endforeach; ?>
+    </ul>
+</div>
