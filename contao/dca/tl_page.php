@@ -8,12 +8,12 @@ $GLOBALS['TL_DCA']['tl_page']['palettes']['__selector__'][] = 'addImage';
 
 $GLOBALS['TL_DCA']['tl_page']['palettes']['regular'] = str_replace(
     'description;',
-    'description;{pageteaser_legend},addImage,previewText;',
+    'description;{pageteaser_legend},previewText,addImage;',
     $GLOBALS['TL_DCA']['tl_page']['palettes']['regular']
 );
 
 $GLOBALS['TL_DCA']['tl_page']['subpalettes'] += [
-    'addImage' => 'singleSRC,alt,imageTitle',
+    'addImage' => 'singleSRC,alt,size,imageTitle',
 ];
 
 $GLOBALS['TL_DCA']['tl_page']['fields'] += [
@@ -26,8 +26,7 @@ $GLOBALS['TL_DCA']['tl_page']['fields'] += [
         ],
         'sql'                     => "char(1) NOT NULL default ''",
     ],
-    'singleSRC' =>
-    [
+    'singleSRC' => [
         'label'                   => &$GLOBALS['TL_LANG']['tl_page']['singleSRC'],
         'exclude'                 => true,
         'inputType'               => 'fileTree',
@@ -35,7 +34,7 @@ $GLOBALS['TL_DCA']['tl_page']['fields'] += [
             'filesOnly' => true,
             'fieldType' => 'radio',
             'mandatory' => true,
-            'tl_class'  => 'clr'
+            'tl_class'  => 'w50'
         ],
         'sql'                     => "binary(16) NULL",
         'load_callback'           => [
