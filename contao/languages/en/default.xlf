@@ -3,10 +3,10 @@
     <file datatype="php" original="system/modules/core/languages/en/default.php" source-language="en">
         <body>
             <trans-unit id="CTE.page_teasers.0">
-                <target>Seitenvorschau</target>
+                <source>Page preview</source>
             </trans-unit>
             <trans-unit id="CTE.page_teasers.1">
-                <target>Stellt eine Seitenvorschau über eine oder mehrere Seiten dar.</target>
+                <source>Generates a page preview out of one or more pages.</source>
             </trans-unit>
         </body>
     </file>

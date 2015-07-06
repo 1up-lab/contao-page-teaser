@@ -1,0 +1,46 @@
+<?xml version="1.0" ?>
+<xliff version="1.1">
+    <file datatype="php" original="system/modules/core/languages/en/tl_page.php" source-language="en">
+        <body>
+            <trans-unit id="tl_page.pageteaser_legend">
+                <source>Image settings</source>
+            </trans-unit>
+            <trans-unit id="tl_page.addImage.0">
+                <source>Add a preview image</source>
+            </trans-unit>
+            <trans-unit id="tl_page.addImage.1">
+                <source>This image will be used for the page preview element.</source>
+            </trans-unit>
+            <trans-unit id="tl_page.singleSRC.0">
+                <source>Source file</source>
+            </trans-unit>
+            <trans-unit id="tl_page.singleSRC.1">
+                <source>Please select a file from the files directory.</source>
+            </trans-unit>
+            <trans-unit id="tl_page.alt.0">
+                <source>Alternate text</source>
+            </trans-unit>
+            <trans-unit id="tl_page.alt.1">
+                <source>Here you can enter an alternate text for the image (&lt;em&gt;alt&lt;/em&gt; attribute).</source>
+            </trans-unit>
+            <trans-unit id="tl_page.imageTitle.0">
+                <source>Title</source>
+            </trans-unit>
+            <trans-unit id="tl_page.imageTitle.1">
+                <source>Here you can enter the image title (&lt;em&gt;title&lt;/em&gt; attribute).</source>
+            </trans-unit>
+            <trans-unit id="tl_page.size.0">
+                <source>Image width and height</source>
+            </trans-unit>
+            <trans-unit id="tl_page.size.1">
+                <source>Here you can set the image dimensions and the resize mode.</source>
+            </trans-unit>
+            <trans-unit id="tl_page.previewText.0">
+                <source>Preview text</source>
+            </trans-unit>
+            <trans-unit id="tl_page.previewText.1">
+                <source>Here you can set the preview text.</source>
+            </trans-unit>
+        </body>
+    </file>
+</xliff>
