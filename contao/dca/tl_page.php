@@ -8,12 +8,12 @@ $GLOBALS['TL_DCA']['tl_page']['palettes']['__selector__'][] = 'addImage';
 
 $GLOBALS['TL_DCA']['tl_page']['palettes']['regular'] = str_replace(
     'description;',
-    'description;{pageteaser_legend},addImage;',
+    'description;{pageteaser_legend},addImage,previewText;',
     $GLOBALS['TL_DCA']['tl_page']['palettes']['regular']
 );
 
 $GLOBALS['TL_DCA']['tl_page']['subpalettes'] += [
-    'addImage' => 'singleSRC,alt,imageTitle,previewText',
+    'addImage' => 'singleSRC,alt,imageTitle',
 ];
 
 $GLOBALS['TL_DCA']['tl_page']['fields'] += [

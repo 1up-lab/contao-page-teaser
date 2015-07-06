@@ -3,8 +3,8 @@
     <file datatype="php" original="system/modules/core/languages/en/tl_page.php" source-language="en">
         <body>
             <trans-unit id="tl_page.pageteaser_legend">
-                <source>Image settings</source>
-                <target>Vorschaubild-Einstellungen</target>
+                <source>Page preview settings</source>
+                <target>Seitenvorschau-Einstellungen</target>
             </trans-unit>
             <trans-unit id="tl_page.addImage.0">
                 <source>Add a preview image</source>
