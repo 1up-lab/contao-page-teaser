@@ -13,7 +13,7 @@ $GLOBALS['TL_DCA']['tl_page']['palettes']['regular'] = str_replace(
 );
 
 $GLOBALS['TL_DCA']['tl_page']['subpalettes'] += [
-    'addImage' => 'singleSRC,alt,size,imageTitle',
+    'addImage' => 'singleSRC,size,alt,imageTitle',
 ];
 
 $GLOBALS['TL_DCA']['tl_page']['fields'] += [
@@ -34,7 +34,7 @@ $GLOBALS['TL_DCA']['tl_page']['fields'] += [
             'filesOnly' => true,
             'fieldType' => 'radio',
             'mandatory' => true,
-            'tl_class'  => 'w50'
+            'tl_class'  => 'clr'
         ],
         'sql'                     => "binary(16) NULL",
         'load_callback'           => [
@@ -76,7 +76,7 @@ $GLOBALS['TL_DCA']['tl_page']['fields'] += [
             'rgxp'       => 'digit',
             'nospace'    => true,
             'helpwizard' => true,
-            'tl_class'   => 'w50'
+            'tl_class'   => 'clr'
         ],
         'sql'                     => "varchar(64) NOT NULL default ''",
     ],

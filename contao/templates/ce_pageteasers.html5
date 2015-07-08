@@ -1,8 +1,7 @@
-<div class="ce_pageteasers">
+<?php $this->extend('block_searchable'); ?>
 
-    <?php if ($this->headline): ?>
-    <<?php echo $this->hl; ?>><?php echo $this->headline; ?></<?php echo $this->hl; ?>>
-    <?php endif; ?>
+<?php $this->block('content'); ?>
 
-    <?php echo $this->teasers; ?>
-</div>
+<?php echo $this->teasers; ?>
+
+<?php $this->endblock(); ?>

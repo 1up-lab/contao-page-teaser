@@ -1,7 +1,7 @@
-<div class="mod_pageteasers">
-    <?php if ($this->headline): ?>
-    <<?php echo $this->hl; ?>><?php echo $this->headline; ?></<?php echo $this->hl; ?>>
-    <?php endif; ?>
+<?php $this->extend('block_searchable'); ?>
 
-    <?php echo $this->teasers; ?>
-</div>
+<?php $this->block('content'); ?>
+
+<?php echo $this->teasers; ?>
+
+<?php $this->endblock(); ?>

@@ -2,23 +2,17 @@
 
 namespace Oneup\PageTeaser\Module;
 
+use Oneup\PageTeaser\Base\BasePageTeaser;
+
 class PageTeaser extends \Module
 {
     protected $strTemplate = 'mod_pageteasers';
 
     protected function compile()
     {
-        $teasers = $this->objModel->getRelated('teasers')->getModels();
-
-        foreach ($teasers as $teaser) {
-            if (!$teaser->singleSRC) {
-                continue;
-            }
-
-            $teaser->previewImage = \FilesModel::findByUuid($teaser->singleSRC);
-        }
-
         $strTemplate = 'teasers_list';
+
+        $basePageTeaser = new BasePageTeaser();
 
         // Use a custom template
         if (TL_MODE == 'FE' && $this->teasers_template != '') {
@@ -26,8 +20,12 @@ class PageTeaser extends \Module
         }
 
         $teaserTpl = new \FrontendTemplate($strTemplate);
-        $teaserTpl->teasers = $teasers;
+        $teasers   = $this->objModel->getRelated('teasers');
 
-        $this->Template->teasers = $teaserTpl->parse();
+        $compiledTeasers = $basePageTeaser->addTeasersToTemplate($teaserTpl, $teasers);
+
+        $this->Template->teasers = $compiledTeasers->parse();
+        $this->Template->headline = $this->headline;
+        $this->Template->hl = $this->hl;
     }
 }

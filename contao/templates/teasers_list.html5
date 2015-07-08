@@ -1,9 +1,17 @@
-<div class="teasers-list">
-    <ul>
-        <?php foreach ($this->teasers as $teaser): ?>
-        <li>
-            <a href="<?php echo $this->generateFrontendUrl($teaser->row()); ?>" title="<?php echo $teaser->title; ?>"><?php echo $teaser->title; ?></a>
-        </li>
-        <?php endforeach; ?>
-    </ul>
-</div>
+<ul>
+    <?php foreach ($this->teasers as $teaser): ?>
+    <li>
+        <?php //var_dump($teaser); ?>
+        <a href="<?php echo $this->generateFrontendUrl($teaser->row()); ?>" title="<?php echo $teaser->title; ?>"><?php echo $teaser->title; ?>
+            <?php if ($teaser->addImage): ?>
+                <figure class="image_container"<?php if ($teaser->margin): ?> style="<?= $teaser->margin ?>"<?php endif; ?>>
+
+                    <?php $this->insert('picture_teaser', $teaser->previewImage->picture); ?>
+
+                </figure>
+            <?php endif; ?>
+            <span class="preview"><?php echo $teaser->previewText; ?></span>
+        </a>
+    </li>
+    <?php endforeach; ?>
+</ul>
