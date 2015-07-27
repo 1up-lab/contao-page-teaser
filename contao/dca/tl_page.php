@@ -4,6 +4,8 @@
  * Table tl_page
  */
 
+\System::loadLanguageFile('tl_explain');
+
 $GLOBALS['TL_DCA']['tl_page']['palettes']['__selector__'][] = 'addImage';
 
 $GLOBALS['TL_DCA']['tl_page']['palettes']['regular'] = str_replace(
@@ -22,7 +24,7 @@ $GLOBALS['TL_DCA']['tl_page']['fields'] += [
         'exclude'                 => true,
         'inputType'               => 'checkbox',
         'eval'                    => [
-            'submitOnChange' => true
+            'submitOnChange' => true,
         ],
         'sql'                     => "char(1) NOT NULL default ''",
     ],
@@ -34,7 +36,7 @@ $GLOBALS['TL_DCA']['tl_page']['fields'] += [
             'filesOnly' => true,
             'fieldType' => 'radio',
             'mandatory' => true,
-            'tl_class'  => 'clr'
+            'tl_class'  => 'clr',
         ],
         'sql'                     => "binary(16) NULL",
         'load_callback'           => [
@@ -51,7 +53,7 @@ $GLOBALS['TL_DCA']['tl_page']['fields'] += [
         'inputType'               => 'text',
         'eval'                    => [
             'maxlength' => 255,
-            'tl_class'  => 'w50'
+            'tl_class'  => 'w50',
         ],
         'sql'                     => "varchar(255) NOT NULL default ''",
     ],
@@ -62,7 +64,7 @@ $GLOBALS['TL_DCA']['tl_page']['fields'] += [
         'inputType'               => 'text',
         'eval'                    => [
             'maxlength' => 255,
-            'tl_class' => 'w50'
+            'tl_class' => 'w50',
         ],
         'sql'                     => "varchar(255) NOT NULL default ''",
     ],
@@ -76,7 +78,7 @@ $GLOBALS['TL_DCA']['tl_page']['fields'] += [
             'rgxp'       => 'digit',
             'nospace'    => true,
             'helpwizard' => true,
-            'tl_class'   => 'clr'
+            'tl_class'   => 'clr',
         ],
         'sql'                     => "varchar(64) NOT NULL default ''",
     ],
@@ -86,10 +88,13 @@ $GLOBALS['TL_DCA']['tl_page']['fields'] += [
         'inputType'               => 'textarea',
         'search'                  => true,
         'eval'                    => [
-            'style'          => 'height:60px',
-            'decodeEntities' => true,
-            'tl_class'       => 'clr'
+            'mandatory'     => false,
+            'rte'           => 'tinyMCE',
+            'helpwizard'    => true,
+            'tl_class'      => 'clr',
+            'style'         => 'height:60px',
         ],
+        'explanation'             => 'insertTags',
         'sql'                     => "text NULL",
     ],
 ];
