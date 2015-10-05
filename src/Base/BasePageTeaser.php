@@ -7,7 +7,7 @@ class BasePageTeaser
     public function getFileFromUuid($obj)
     {
         // check if singleSRC is a path already
-        if (is_file(TL_ROOT . '/' . $obj->singleSRC))
+        if (!\Validator::isUuid($obj->singleSRC) && is_file(TL_ROOT . '/' . $obj->singleSRC))
         {
             return $obj->singleSRC;
         }
