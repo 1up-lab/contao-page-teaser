@@ -52,12 +52,18 @@ class BasePageTeaser
             }
 
             $teasers[] = $teaser;
-
+            
+            // Skip if no image is around
             if (!$teaser->singleSRC) {
                 continue;
             }
 
             $teaser->singleSRC = $this->getFileFromUuid($teaser);
+
+            // Skip again, if still no file around
+            if (!$teaser->singleSRC) {
+                continue;
+            }
 
             $objImage = new \stdClass();
 
