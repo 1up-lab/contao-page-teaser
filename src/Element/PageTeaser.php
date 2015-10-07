@@ -20,7 +20,9 @@ class PageTeaser extends \ContentElement
         }
 
         $teaserTpl = new \FrontendTemplate($strTemplate);
-        $teasers   = $this->objModel->getRelated('teasers');
+        $teasers   = $this->objModel->getRelated('teasers', [
+            'order' => \Database::getInstance()->findInSet('tl_page.id', deserialize($this->teasers_order))
+        ]);
 
         $compiledTeasers = $basePageTeaser->addTeasersToTemplate($teaserTpl, $teasers);
 
