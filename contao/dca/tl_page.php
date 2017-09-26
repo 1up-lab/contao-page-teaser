@@ -14,6 +14,12 @@ $GLOBALS['TL_DCA']['tl_page']['palettes']['regular'] = str_replace(
     $GLOBALS['TL_DCA']['tl_page']['palettes']['regular']
 );
 
+$GLOBALS['TL_DCA']['tl_page']['palettes']['forward'] = str_replace(
+    'pageTitle;',
+    'pageTitle;{pageteaser_legend},previewText,addImage;',
+    $GLOBALS['TL_DCA']['tl_page']['palettes']['forward']
+);
+
 $GLOBALS['TL_DCA']['tl_page']['subpalettes'] += [
     'addImage' => 'singleSRC,size,alt,imageTitle',
 ];
