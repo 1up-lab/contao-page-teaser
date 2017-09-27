@@ -43,11 +43,7 @@
       "sources": {
         "contao": "system/modules/page-teaser"
       }
-    },
-    "branch-alias": {
-      "dev-master": "1.2.x-dev"
     }
   },
-  "minimum-stability": "dev",
   "prefer-stable": true
 }
