@@ -7,30 +7,25 @@ class BasePageTeaser
     public function getFileFromUuid($obj)
     {
         // check if singleSRC is a path already
-        if (!\Validator::isUuid($obj->singleSRC) && is_file(TL_ROOT . '/' . $obj->singleSRC))
-        {
+        if (!\Validator::isUuid($obj->singleSRC) && is_file(TL_ROOT . '/' . $obj->singleSRC)) {
             return $obj->singleSRC;
         }
 
-        if ($obj->singleSRC == '')
-        {
+        if ($obj->singleSRC == '') {
             return null;
         }
 
         $objFile = \FilesModel::findByUuid($obj->singleSRC);
 
-        if ($objFile === null)
-        {
-            if (!\Validator::isUuid($obj->singleSRC))
-            {
+        if ($objFile === null) {
+            if (!\Validator::isUuid($obj->singleSRC)) {
                 throw new \Exception($GLOBALS['TL_LANG']['ERR']['version2format']);
             }
 
             return null;
         }
 
-        if (!is_file(TL_ROOT . '/' . $objFile->path))
-        {
+        if (!is_file(TL_ROOT . '/' . $objFile->path)) {
             return null;
         }
 

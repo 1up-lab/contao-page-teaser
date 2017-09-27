@@ -23,10 +23,8 @@ class DcaHelper extends \Backend
      */
     public function setSingleSrcFlags($varValue, \DataContainer $dc)
     {
-        if ($dc->activeRecord)
-        {
-            switch ($dc->activeRecord->type)
-            {
+        if ($dc->activeRecord) {
+            switch ($dc->activeRecord->type) {
                 case 'text':
                 case 'hyperlink':
                 case 'image':
@@ -53,24 +51,20 @@ class DcaHelper extends \Backend
      */
     public function storeFileMetaInformation($varValue, \DataContainer $dc)
     {
-        if ($dc->activeRecord->singleSRC == $varValue)
-        {
+        if ($dc->activeRecord->singleSRC == $varValue) {
             return $varValue;
         }
 
         $objFile = \FilesModel::findByUuid($varValue);
 
-        if ($objFile !== null)
-        {
+        if ($objFile !== null) {
             $arrMeta = deserialize($objFile->meta);
 
-            if (!empty($arrMeta))
-            {
+            if (!empty($arrMeta)) {
                 $objPage = $this->Database->prepare("SELECT * FROM tl_page WHERE id=(SELECT pid FROM " . ($dc->activeRecord->ptable ?: 'tl_article') . " WHERE id=?)")
                     ->execute($dc->activeRecord->pid);
 
-                if ($objPage->numRows)
-                {
+                if ($objPage->numRows) {
                     $objModel = new \PageModel();
                     $objModel->setRow($objPage->row());
                     $objModel->loadDetails();
@@ -78,8 +72,7 @@ class DcaHelper extends \Backend
                     // Convert the language to a locale (see #5678)
                     $strLanguage = str_replace('-', '_', $objModel->rootLanguage);
 
-                    if (isset($arrMeta[$strLanguage]))
-                    {
+                    if (isset($arrMeta[$strLanguage])) {
                         \Input::setPost('alt', $arrMeta[$strLanguage]['title']);
                         \Input::setPost('caption', $arrMeta[$strLanguage]['caption']);
                     }
