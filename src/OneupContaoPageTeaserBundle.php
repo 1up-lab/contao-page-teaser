@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Oneup\PageTeaser;
+namespace Oneup\ContaoPageTeaserBundle;
 
 use Symfony\Component\HttpKernel\Bundle\Bundle;
 
