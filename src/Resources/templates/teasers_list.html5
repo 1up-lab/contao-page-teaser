@@ -1,0 +1,16 @@
+<ul>
+    <?php foreach ($this->teasers as $teaser): ?>
+        <li>
+            <a href="<?= $this->generateFrontendUrl($teaser->row()); ?>" title="<?= $teaser->title; ?>"><?= $teaser->title; ?>
+                <?php if ($teaser->addImage): ?>
+                    <figure class="image_container"<?php if ($teaser->margin): ?> style="<?= $teaser->margin ?>"<?php endif; ?>>
+
+                        <?php $this->insert('picture_teaser', $teaser->previewImage->picture); ?>
+
+                    </figure>
+                <?php endif; ?>
+                <span class="preview"><?= $teaser->previewText; ?></span>
+            </a>
+        </li>
+    <?php endforeach; ?>
+</ul>
