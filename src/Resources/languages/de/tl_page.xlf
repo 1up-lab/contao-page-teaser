@@ -1,6 +1,6 @@
 <?xml version="1.0" ?>
 <xliff version="1.1">
-    <file datatype="php" original="system/modules/core/languages/en/tl_page.php" source-language="en">
+    <file>
         <body>
             <trans-unit id="tl_page.pageteaser_legend">
                 <source>Page preview settings</source>

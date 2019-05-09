@@ -1,7 +1,5 @@
 <?php
 
-use Oneup\ContaoPageTeaserBundle\Helper\DcaHelper;
-
 $GLOBALS['TL_DCA']['tl_module']['palettes'] += [
     'page_teasers' => '{title_legend},name,headline,type;{teasers_legend},teasers,teasers_order,teasers_template',
 ];
@@ -34,7 +32,7 @@ $GLOBALS['TL_DCA']['tl_module']['fields'] += [
         'default' => 'teasers_list',
         'exclude' => true,
         'inputType' => 'select',
-        'options_callback' => [DcaHelper::class, 'getTeaserTemplate'],
+        'options_callback' => ['oneup.page_teasers.dca_helper', 'getTeaserTemplate'],
         'sql' => "varchar(32) NOT NULL default ''",
     ],
 ];
