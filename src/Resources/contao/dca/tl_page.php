@@ -1,10 +1,10 @@
 <?php
 
-/**
- * Table tl_page
- */
+declare(strict_types=1);
 
-\System::loadLanguageFile('tl_explain');
+use Contao\System;
+
+System::loadLanguageFile('tl_explain');
 
 $GLOBALS['TL_DCA']['tl_page']['palettes']['__selector__'][] = 'addImage';
 
@@ -45,12 +45,8 @@ $GLOBALS['TL_DCA']['tl_page']['fields'] += [
             'tl_class' => 'clr',
         ],
         'sql' => "binary(16) NULL",
-        'load_callback' => [
-            ['Oneup\PageTeaser\Helper\DcaHelper', 'setSingleSrcFlags'],
-        ],
-        'save_callback' => [
-            ['Oneup\PageTeaser\Helper\DcaHelper', 'storeFileMetaInformation']
-        ],
+        'load_callback' => ['oneup.page_teasers.dca_helper', 'setSingleSrcFlags'],
+        'save_callback' => ['oneup.page_teasers.dca_helper', 'storeFileMetaInformation'],
     ],
     'alt' => [
         'label' => &$GLOBALS['TL_LANG']['tl_page']['alt'],
@@ -78,7 +74,7 @@ $GLOBALS['TL_DCA']['tl_page']['fields'] += [
         'label' => &$GLOBALS['TL_LANG']['tl_page']['size'],
         'exclude' => true,
         'inputType' => 'imageSize',
-        'options' => \System::getImageSizes(),
+        'options_callback' => ['oneup.page_teasers.dca_helper', 'getImageSizes'],
         'reference' => &$GLOBALS['TL_LANG']['MSC'],
         'eval' => [
             'rgxp' => 'natural',

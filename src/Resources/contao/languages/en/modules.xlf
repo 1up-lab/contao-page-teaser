@@ -2,10 +2,10 @@
 <xliff version="1.1">
     <file datatype="php" original="system/modules/core/languages/en/modules.php" source-language="en">
         <body>
-            <trans-unit id="FMD.page_teasers.0">
+            <trans-unit id="FMD.page_teasers_module.0">
                 <source>Page preview</source>
             </trans-unit>
-            <trans-unit id="FMD.page_teasers.1">
+            <trans-unit id="FMD.page_teasers_module.1">
                 <source>Generates a page preview out of one or more pages.</source>
             </trans-unit>
         </body>

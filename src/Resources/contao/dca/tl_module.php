@@ -1,7 +1,7 @@
 <?php
 
 $GLOBALS['TL_DCA']['tl_module']['palettes'] += [
-    'page_teasers' => '{title_legend},name,headline,type;{teasers_legend},teasers,teasers_order,teasers_template'
+    'page_teasers' => '{title_legend},name,headline,type;{teasers_legend},teasers,teasers_order,teasers_template',
 ];
 
 $GLOBALS['TL_DCA']['tl_module']['fields'] += [
@@ -15,12 +15,12 @@ $GLOBALS['TL_DCA']['tl_module']['fields'] += [
             'fieldType' => 'checkbox',
             'files' => true,
             'orderField' => 'teasers_order',
-            'mandatory' => true
+            'mandatory' => true,
         ],
         'sql' => "blob NULL",
         'relation' => [
             'type' => 'hasMany',
-            'load' => 'lazy'
+            'load' => 'lazy',
         ],
     ],
     'teasers_order' => [
@@ -32,10 +32,7 @@ $GLOBALS['TL_DCA']['tl_module']['fields'] += [
         'default' => 'teasers_list',
         'exclude' => true,
         'inputType' => 'select',
-        'options_callback' => [
-            'Oneup\PageTeaser\Helper\DcaHelper',
-            'getTeaserTemplate'
-        ],
+        'options_callback' => ['oneup.page_teasers.dca_helper', 'getTeaserTemplate'],
         'sql' => "varchar(32) NOT NULL default ''",
     ],
 ];
