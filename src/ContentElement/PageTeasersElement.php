@@ -45,5 +45,7 @@ class PageTeasersElement extends AbstractContentElementController
         $template->teasers = $compiledTeasers->parse();
         $template->headline = $model->headline;
         $template->hl = $model->hl;
+
+        return $template->getResponse();
     }
 }
