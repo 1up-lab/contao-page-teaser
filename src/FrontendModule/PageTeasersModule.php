@@ -4,18 +4,18 @@ declare(strict_types=1);
 
 namespace Oneup\PageTeaser\ContentElement;
 
-use Contao\ContentModel;
-use Contao\CoreBundle\Controller\ContentElement\AbstractContentElementController;
+use Contao\CoreBundle\Controller\FrontendModule\AbstractFrontendModuleController;
 use Contao\CoreBundle\Routing\ScopeMatcher;
 use Contao\Database;
 use Contao\FrontendTemplate;
+use Contao\ModuleModel;
 use Contao\Template;
 use Contao\StringUtil;
 use Oneup\PageTeaser\Helper\TemplateHelper;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 
-class PageTeasersElement extends AbstractContentElementController
+class PageTeasersModule extends AbstractFrontendModuleController
 {
     protected $scopeMatcher;
     protected $templateHelper;
@@ -26,7 +26,7 @@ class PageTeasersElement extends AbstractContentElementController
         $this->templateHelper = $templateHelper;
     }
 
-    protected function getResponse(Template $template, ContentModel $model, Request $request): Response
+    protected function getResponse(Template $template, ModuleModel $model, Request $request): Response
     {
         $teaserTemplateName = 'teasers_list';
 
