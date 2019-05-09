@@ -1,0 +1,9 @@
+services:
+
+    # Helpers
+    Oneup\PageTeaser\Dca\DcaHelper:
+        public: true
+        arguments:
+            - "@doctrine.dbal.default_connection"
+            - "@security.token_storage"
+            - "@contao.image.image_sizes"
