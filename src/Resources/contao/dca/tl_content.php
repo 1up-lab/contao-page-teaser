@@ -1,7 +1,7 @@
 <?php
 
 $GLOBALS['TL_DCA']['tl_content']['palettes'] += [
-    'page_teasers_element' => '{title_legend},name,headline,type;{teasers_legend},teasers,teasers_order,teasers_template',
+    'page_teasers_element' => '{type_legend},name,headline,type;{teasers_legend},teasers,teasers_order,teasers_template',
 ];
 
 $GLOBALS['TL_DCA']['tl_content']['fields'] += [
