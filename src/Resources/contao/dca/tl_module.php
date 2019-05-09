@@ -1,6 +1,6 @@
 <?php
 
-use Oneup\PageTeaser\Dca\DcaHelper;
+use Oneup\PageTeaser\Helper\DcaHelper;
 
 $GLOBALS['TL_DCA']['tl_module']['palettes'] += [
     'page_teasers' => '{title_legend},name,headline,type;{teasers_legend},teasers,teasers_order,teasers_template',

@@ -1,7 +1,7 @@
 services:
 
     # Helpers
-    Oneup\PageTeaser\Dca\DcaHelper:
+    Oneup\PageTeaser\Helper\DcaHelper:
         public: true
         arguments:
             - "@doctrine.dbal.default_connection"

@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Oneup\PageTeaser\Dca;
+namespace Oneup\PageTeaser\Helper;
 
 use Contao\BackendUser;
 use Contao\Config;

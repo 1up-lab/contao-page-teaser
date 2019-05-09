@@ -3,7 +3,7 @@
 declare(strict_types=1);
 
 use Contao\System;
-use Oneup\PageTeaser\Dca\DcaHelper;
+use Oneup\PageTeaser\Helper\DcaHelper;
 
 System::loadLanguageFile('tl_explain');
 
