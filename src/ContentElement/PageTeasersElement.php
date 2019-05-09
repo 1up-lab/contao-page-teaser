@@ -40,11 +40,7 @@ class PageTeasersElement extends AbstractContentElementController
             'order' => Database::getInstance()->findInSet('tl_page.id', StringUtil::deserialize($model->teasers_order))
         ]);
 
-        $compiledTeasers = $this->templateHelper->addTeasersToTemplate($teaserTemplate, $teasers);
-
-        $template->teasers = $compiledTeasers->parse();
-        $template->headline = $model->headline;
-        $template->hl = $model->hl;
+        $template->teasers = $this->templateHelper->addTeasersToTemplate($teaserTemplate, $teasers);
 
         return $template->getResponse();
     }
