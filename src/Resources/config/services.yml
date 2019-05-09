@@ -1,6 +1,6 @@
 services:
     # Content Elements
-    Oneup\PageTeaser\ContentElement\PageTeasersElement:
+    Oneup\ContaoPageTeaserBundle\ContentElement\PageTeasersElement:
         arguments:
             - "@contao.routing.scope_matcher"
             - "@contao.page_teasers.template_helper"
@@ -8,7 +8,7 @@ services:
             - { name: contao.content_element, category: links }
 
     # Frontend Modules
-    Oneup\PageTeaser\FrontendModule\PageTeasersModule:
+    Oneup\ContaoPageTeaserBundle\FrontendModule\PageTeasersModule:
         arguments:
             - "@contao.routing.scope_matcher"
             - "@contao.page_teasers.template_helper"
@@ -17,7 +17,7 @@ services:
 
     # Helpers
     oneup.page_teasers.dca_helper:
-        class: "Oneup\PageTeasers\Helper\DcaHelper"
+        class: "Oneup\ContaoPageTeaserBundle\Helper\DcaHelper"
         public: true
         arguments:
             - "@doctrine.dbal.default_connection"
@@ -25,11 +25,11 @@ services:
             - "@contao.image.image_sizes"
 
     oneup.page_teasers.file_helper:
-        class: "Oneup\PageTeasers\Helper\FileHelper"
+        class: "Oneup\ContaoPageTeaserBundle\Helper\FileHelper"
         arguments:
             - "%kernel.project_dir%"
 
     oneup.page_teasers.template_helper:
-        class: "Oneup\PageTeasers\Helper\TemplateHelper"
+        class: "Oneup\ContaoPageTeaserBundle\Helper\TemplateHelper"
         arguments:
             - "@oneup.page_teasers.file_helper"

@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Oneup\PageTeaser\ContentElement;
+namespace Oneup\ContaoPageTeaserBundle\ContentElement;
 
 use Contao\ContentModel;
 use Contao\CoreBundle\Controller\ContentElement\AbstractContentElementController;
@@ -11,7 +11,7 @@ use Contao\Database;
 use Contao\FrontendTemplate;
 use Contao\Template;
 use Contao\StringUtil;
-use Oneup\PageTeaser\Helper\TemplateHelper;
+use Oneup\ContaoPageTeaserBundle\Helper\TemplateHelper;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 

@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Oneup\PageTeaser\ContentElement;
+namespace Oneup\ContaoPageTeaserBundle\ContentElement;
 
 use Contao\CoreBundle\Controller\FrontendModule\AbstractFrontendModuleController;
 use Contao\CoreBundle\Routing\ScopeMatcher;
@@ -11,7 +11,7 @@ use Contao\FrontendTemplate;
 use Contao\ModuleModel;
 use Contao\Template;
 use Contao\StringUtil;
-use Oneup\PageTeaser\Helper\TemplateHelper;
+use Oneup\ContaoPageTeaserBundle\Helper\TemplateHelper;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 

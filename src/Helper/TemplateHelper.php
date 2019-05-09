@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Oneup\PageTeaser\Helper;
+namespace Oneup\ContaoPageTeaserBundle\Helper;
 
 use Contao\Controller;
 use Contao\FrontendTemplate;
