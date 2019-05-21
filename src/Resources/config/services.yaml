@@ -15,6 +15,13 @@ services:
         tags:
             - { name: contao.frontend_module, category: navigationMenu }
 
+    Oneup\ContaoPageTeaserBundle\FrontendModule\PageTeasersModule:
+        arguments:
+            - "@contao.routing.scope_matcher"
+            - "@oneup.page_teasers.template_helper"
+        tags:
+            - { name: contao.frontend_module, category: navigationMenu }
+
     # Helpers
     oneup.page_teasers.dca_helper:
         class: Oneup\ContaoPageTeaserBundle\Helper\DcaHelper

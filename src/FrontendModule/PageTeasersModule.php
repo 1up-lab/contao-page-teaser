@@ -9,6 +9,7 @@ use Contao\CoreBundle\Routing\ScopeMatcher;
 use Contao\Database;
 use Contao\FrontendTemplate;
 use Contao\ModuleModel;
+use Contao\PageModel;
 use Contao\Template;
 use Contao\StringUtil;
 use Oneup\ContaoPageTeaserBundle\Helper\TemplateHelper;
@@ -36,11 +37,13 @@ class PageTeasersModule extends AbstractFrontendModuleController
 
         $teaserTemplate = new FrontendTemplate($teaserTemplateName);
 
-        $teasers = $model->getRelated('teasers', [
-            'order' => Database::getInstance()->findInSet('tl_page.id', StringUtil::deserialize($model->teasers_order))
-        ]);
+        $pages = PageModel::findPublishedSubpagesWithoutGuestsByPid($model->rootPage, $model->showHidden);
 
-        $template->teasers = $this->templateHelper->addTeasersToTemplate($teaserTemplate, $teasers)->parse();
+        if (!$pages) {
+            return new Response('');
+        }
+
+        $template->teasers = $this->templateHelper->addTeasersToTemplate($teaserTemplate, $pages)->parse();
 
         return $template->getResponse();
     }

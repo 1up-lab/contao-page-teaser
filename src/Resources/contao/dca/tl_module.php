@@ -1,7 +1,8 @@
 <?php
 
 $GLOBALS['TL_DCA']['tl_module']['palettes'] += [
-    'page_teasers_individual_module' => '{title_legend},name,headline,type;{teasers_legend},teasers,teasers_order,teasers_template',
+    'page_teasers_individual_module' => '{title_legend},name,headline,type;{teasers_legend},teasers,teasers_order,teasers_template;',
+    'page_teasers_module' => '{title_legend},name,headline,type;{nav_legend},levelOffset,showLevel,hardLimit,showProtected,showHidden;{reference_legend:hide},defineRoot;{teasers_legend},teasers_template;'
 ];
 
 $GLOBALS['TL_DCA']['tl_module']['fields'] += [

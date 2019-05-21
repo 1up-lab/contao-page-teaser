@@ -8,6 +8,13 @@
             <trans-unit id="FMD.page_teasers_individual_module.1">
                 <target>Stellt eine Seitenvorschau über eine oder mehrere auswählbare Seiten dar.</target>
             </trans-unit>
+
+            <trans-unit id="FMD.page_teasers_module.0">
+                <target>Seitenvorschau</target>
+            </trans-unit>
+            <trans-unit id="FMD.page_teasers_module.1">
+                <target>Stellt eine Seitenvorschau über eine oder mehrere definierbare Unterseiten dar.</target>
+            </trans-unit>
         </body>
     </file>
 </xliff>
