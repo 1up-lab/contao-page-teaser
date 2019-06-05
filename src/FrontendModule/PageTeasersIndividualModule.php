@@ -9,8 +9,8 @@ use Contao\CoreBundle\Routing\ScopeMatcher;
 use Contao\Database;
 use Contao\FrontendTemplate;
 use Contao\ModuleModel;
-use Contao\Template;
 use Contao\StringUtil;
+use Contao\Template;
 use Oneup\ContaoPageTeaserBundle\Helper\TemplateHelper;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -37,7 +37,7 @@ class PageTeasersIndividualModule extends AbstractFrontendModuleController
         $teaserTemplate = new FrontendTemplate($teaserTemplateName);
 
         $teasers = $model->getRelated('teasers', [
-            'order' => Database::getInstance()->findInSet('tl_page.id', StringUtil::deserialize($model->teasers_order))
+            'order' => Database::getInstance()->findInSet('tl_page.id', StringUtil::deserialize($model->teasers_order)),
         ]);
 
         $template->teasers = $this->templateHelper->addTeasersToTemplate($teaserTemplate, $teasers)->parse();

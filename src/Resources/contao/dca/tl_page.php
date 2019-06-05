@@ -45,8 +45,6 @@ $GLOBALS['TL_DCA']['tl_page']['fields'] += [
             'tl_class' => 'clr',
         ],
         'sql' => "binary(16) NULL",
-        'load_callback' => ['oneup.page_teasers.dca_helper', 'setSingleSrcFlags'],
-        'save_callback' => ['oneup.page_teasers.dca_helper', 'storeFileMetaInformation'],
     ],
     'alt' => [
         'label' => &$GLOBALS['TL_LANG']['tl_page']['alt'],
@@ -98,6 +96,6 @@ $GLOBALS['TL_DCA']['tl_page']['fields'] += [
             'style' => 'height:60px',
         ],
         'explanation' => 'insertTags',
-        'sql' => "text NULL",
+        'sql' => 'text NULL',
     ],
 ];

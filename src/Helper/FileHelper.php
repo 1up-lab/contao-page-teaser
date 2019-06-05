@@ -23,13 +23,13 @@ class FileHelper
             return $obj->singleSRC;
         }
 
-        if ($obj->singleSRC == '') {
+        if ('' === $obj->singleSRC) {
             return null;
         }
 
         $objFile = FilesModel::findByUuid($obj->singleSRC);
 
-        if ($objFile === null) {
+        if (null === $objFile) {
             if (!Validator::isUuid($obj->singleSRC)) {
                 throw new \Exception($GLOBALS['TL_LANG']['ERR']['version2format']);
             }
@@ -37,7 +37,7 @@ class FileHelper
             return null;
         }
 
-        if (!\is_file(sprintf('%s/%s', $this->projectDir, $objFile->path))) {
+        if (!is_file(sprintf('%s/%s', $this->projectDir, $objFile->path))) {
             return null;
         }
 

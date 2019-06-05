@@ -34,10 +34,12 @@
     },
     "require": {
         "php": ">=7.2",
-        "contao/core-bundle": "^4.7"
+        "contao/core-bundle": "^4.7",
+        "contao/manager-plugin": "^2.0"
     },
     "require-dev": {
-        "php-http/guzzle6-adapter": "^1.1"
+        "php-http/guzzle6-adapter": "^1.1",
+        "friendsofphp/php-cs-fixer": "^2.15"
     },
     "autoload": {
         "psr-4": {

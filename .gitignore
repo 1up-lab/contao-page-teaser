@@ -17,3 +17,5 @@ composer.phar
 
 # Transifex
 /.tx/
+
+.php_cs.cache
