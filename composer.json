@@ -1,5 +1,6 @@
 {
     "name": "oneup/contao-page-teaser",
+    "type": "contao-module",
     "description": "Page teaser functionality for Contao Open Source CMS",
     "keywords": [
         "contao",
@@ -9,7 +10,6 @@
         "extensions",
         "modules"
     ],
-    "type": "contao-module",
     "homepage": "https://1up.io",
     "license": "MIT",
     "authors": [
@@ -26,25 +26,31 @@
             "role": "Developer"
         }
     ],
-    "support": {
-        "email": "hello@1up.io",
-        "issues": "https://github.com/1up-lab/contao-page-teaser/issues",
-        "irc": "irc://irc.freenode.org/contao.dev",
-        "source": "https://github.com/1up-lab/contao-page-teaser"
-    },
     "require": {
         "php": ">=7.2",
-        "contao/core-bundle": "^4.7",
-        "contao/manager-plugin": "^2.0"
+        "contao/core-bundle": "^4.7"
+    },
+    "conflict": {
+        "contao/manager-plugin": "<2.0 || >=3.0"
     },
     "require-dev": {
-        "php-http/guzzle6-adapter": "^1.1",
-        "friendsofphp/php-cs-fixer": "^2.15"
+        "contao/manager-plugin": "^2.0",
+        "friendsofphp/php-cs-fixer": "^2.15",
+        "php-http/guzzle6-adapter": "^1.1"
+    },
+    "extra": {
+        "contao-manager-plugin": "Oneup\\ContaoPageTeaserBundle\\ContaoManager\\Plugin"
     },
     "autoload": {
         "psr-4": {
             "Oneup\\ContaoPageTeaserBundle\\": "src"
         }
     },
-    "prefer-stable": true
+    "prefer-stable": true,
+    "support": {
+        "email": "hello@1up.io",
+        "issues": "https://github.com/1up-lab/contao-page-teaser/issues",
+        "slack": "https://contao.slack.com",
+        "source": "https://github.com/1up-lab/contao-page-teaser"
+    }
 }
