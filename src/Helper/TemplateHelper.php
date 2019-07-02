@@ -17,9 +17,11 @@ class TemplateHelper
         $this->fileHelper = $fileHelper;
     }
 
-    public function addTeasersToTemplate(FrontendTemplate $template, Collection $teasers)
+    public function addTeasersToTemplate(FrontendTemplate $template, Collection $teasers = null)
     {
         if (!$teasers) {
+            $template->teasers = [];
+
             return $template;
         }
 
