@@ -8,9 +8,15 @@ System::loadLanguageFile('tl_explain');
 
 $GLOBALS['TL_DCA']['tl_page']['palettes']['__selector__'][] = 'addImage';
 
+$search = 'description;';
+
+if (false !== strpos($GLOBALS['TL_DCA']['tl_page']['palettes']['regular'], 'serpPreview;')) {
+    $search = 'serpPreview;';
+}
+
 $GLOBALS['TL_DCA']['tl_page']['palettes']['regular'] = str_replace(
-    'description;',
-    'description;{pageteaser_legend},previewText,addImage;',
+    $search,
+    sprintf('%s{pageteaser_legend},previewText,addImage;', $search),
     $GLOBALS['TL_DCA']['tl_page']['palettes']['regular']
 );
 

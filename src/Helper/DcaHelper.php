@@ -25,8 +25,6 @@ class DcaHelper
 
     /**
      * Return all news templates as array.
-     *
-     * @return array
      */
     public function getTeaserTemplate(): array
     {
@@ -35,8 +33,6 @@ class DcaHelper
 
     /**
      * Return all available image sizes for the logged in user.
-     *
-     * @return array
      */
     public function getImageSizes(): array
     {
