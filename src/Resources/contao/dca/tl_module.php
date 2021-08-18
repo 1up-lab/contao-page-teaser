@@ -35,7 +35,7 @@ $GLOBALS['TL_DCA']['tl_module']['fields'] += [
         'inputType' => 'select',
         'options_callback' => ['oneup.page_teasers.dca_helper', 'getTeaserTemplate'],
         'eval' => [
-            'tl_class' => 'clr',
+            'tl_class' => 'w50 clr',
         ],
         'sql' => "varchar(32) NOT NULL default ''",
     ],
