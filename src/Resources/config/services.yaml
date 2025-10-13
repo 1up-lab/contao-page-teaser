@@ -44,3 +44,4 @@ services:
         class: Oneup\ContaoPageTeaserBundle\Helper\TemplateHelper
         arguments:
             - "@oneup.page_teasers.file_helper"
+            - "@contao.image.studio"

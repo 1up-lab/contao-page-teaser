@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace Oneup\ContaoPageTeaserBundle\Helper;
 
-use Contao\Controller;
+use Contao\CoreBundle\Image\Studio\Studio;
 use Contao\FrontendTemplate;
 use Contao\Model\Collection;
 
@@ -12,9 +12,10 @@ class TemplateHelper
 {
     protected $fileHelper;
 
-    public function __construct(FileHelper $fileHelper)
+    public function __construct(FileHelper $fileHelper, Studio $studio)
     {
         $this->fileHelper = $fileHelper;
+        $this->studio = $studio;
     }
 
     public function addTeasersToTemplate(FrontendTemplate $template, Collection $teasers = null)
@@ -47,9 +48,19 @@ class TemplateHelper
                 continue;
             }
 
+            $figure = $this->studio->createFigureBuilder()
+                ->fromPath($teaser->singleSRC, false)
+                ->setSize($teaser->size)
+                ->buildIfResourceExists()
+            ;
+
+            if (null === $figure) {
+                continue;
+            }
+
             $objImage = new \stdClass();
 
-            Controller::addImageToTemplate($objImage, $teaser->row());
+            $figure->applyLegacyTemplateData($objImage);
 
             $teaser->previewImage = $objImage;
         }
