@@ -1,4 +1,8 @@
 services:
+    # alias for backwards compatibility
+    contao.image.image_sizes: '@contao.image.sizes'
+    Psr\Container\ContainerInterface: '@service_container'
+
     # Content Elements
     Oneup\ContaoPageTeaserBundle\ContentElement\PageTeasersElement:
         arguments:
