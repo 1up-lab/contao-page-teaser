@@ -45,3 +45,4 @@ services:
         arguments:
             - "@oneup.page_teasers.file_helper"
             - "@contao.image.studio"
+            - "@contao.insert_tag.parser"

@@ -5,17 +5,20 @@ declare(strict_types=1);
 namespace Oneup\ContaoPageTeaserBundle\Helper;
 
 use Contao\CoreBundle\Image\Studio\Studio;
+use Contao\CoreBundle\InsertTag\InsertTagParser;
 use Contao\FrontendTemplate;
 use Contao\Model\Collection;
+use Contao\StringUtil;
 
 class TemplateHelper
 {
     protected $fileHelper;
 
-    public function __construct(FileHelper $fileHelper, Studio $studio)
+    public function __construct(FileHelper $fileHelper, Studio $studio, InsertTagParser $insertTagParser)
     {
         $this->fileHelper = $fileHelper;
         $this->studio = $studio;
+        $this->insertTagParser = $insertTagParser;
     }
 
     public function addTeasersToTemplate(FrontendTemplate $template, Collection $teasers = null)
@@ -33,6 +36,9 @@ class TemplateHelper
             if (!$teaser->published) {
                 continue;
             }
+
+            $teaser->previewText = $this->insertTagParser->replace((string) StringUtil::restoreBasicEntities($teaser->previewText));
+            $teaser->url = $teaser instanceof PageModel ? $teaser->getFrontendUrl() : '';
 
             $teasers[] = $teaser;
 
