@@ -38,7 +38,14 @@ class TemplateHelper
             }
 
             $teaser->previewText = $this->insertTagParser->replace((string) StringUtil::restoreBasicEntities($teaser->previewText));
-            $teaser->url = $teaser instanceof PageModel ? $teaser->getFrontendUrl() : '';
+            $teaser->url = $this->insertTagParser->replace((string) $teaser->url);
+
+            if ($teaser instanceof PageModel) {
+                try {
+                    $teaser->url = $teaser->getFrontendUrl();
+                } catch (\Exception $e) {
+                }
+            }
 
             $teasers[] = $teaser;
 
