@@ -8,6 +8,7 @@ use Contao\CoreBundle\Image\Studio\Studio;
 use Contao\CoreBundle\InsertTag\InsertTagParser;
 use Contao\FrontendTemplate;
 use Contao\Model\Collection;
+use Contao\PageModel;
 use Contao\StringUtil;
 
 class TemplateHelper
