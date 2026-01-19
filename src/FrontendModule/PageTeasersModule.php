@@ -35,7 +35,6 @@ class PageTeasersModule extends AbstractFrontendModuleController
 
         $teaserTemplate = new FrontendTemplate($teaserTemplateName);
 
-        // $pages = PageModel::findPublishedSubpagesWithoutGuestsByPid($model->rootPage, $model->showHidden);
         if (!$model->showProtected) {
             if ($model->showHidden) {
                 $pages = PageModel::findPublishedByPid($model->rootPage, ['having' => "protected = false AND guests = false"]);
