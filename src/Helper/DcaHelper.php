@@ -9,11 +9,11 @@ use Contao\Controller;
 use Contao\CoreBundle\Image\ImageSizes;
 use Symfony\Component\Security\Core\Authentication\Token\Storage\TokenStorageInterface;
 
-readonly class DcaHelper
+class DcaHelper
 {
     public function __construct(
-        private TokenStorageInterface $tokenStorage,
-        private ImageSizes $imageSizes
+        private readonly TokenStorageInterface $tokenStorage,
+        private readonly ImageSizes $imageSizes
     ) {
     }
 

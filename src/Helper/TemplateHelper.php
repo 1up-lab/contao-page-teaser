@@ -12,11 +12,11 @@ use Contao\PageModel;
 use Contao\StringUtil;
 use Symfony\Component\Routing\Generator\UrlGeneratorInterface;
 
-readonly class TemplateHelper
+class TemplateHelper
 {
     public function __construct(
-        private InsertTagParser $insertTagParser,
-        private ContentUrlGenerator $contentUrlGenerator,
+        private readonly InsertTagParser $insertTagParser,
+        private readonly ContentUrlGenerator $contentUrlGenerator,
     ) {
     }
 
