@@ -23,6 +23,7 @@ services:
         arguments:
             - "@contao.routing.scope_matcher"
             - "@oneup.page_teasers.template_helper"
+            - "@contao.security.token_checker"
         tags:
             - { name: contao.frontend_module, category: navigationMenu }
 

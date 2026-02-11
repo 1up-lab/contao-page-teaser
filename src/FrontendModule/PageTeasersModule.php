@@ -6,6 +6,7 @@ namespace Oneup\ContaoPageTeaserBundle\FrontendModule;
 
 use Contao\CoreBundle\Controller\FrontendModule\AbstractFrontendModuleController;
 use Contao\CoreBundle\Routing\ScopeMatcher;
+use Contao\CoreBundle\Security\Authentication\Token\TokenChecker;
 use Contao\CoreBundle\Twig\FragmentTemplate;
 use Contao\FrontendTemplate;
 use Contao\ModuleModel;
@@ -19,6 +20,7 @@ class PageTeasersModule extends AbstractFrontendModuleController
     public function __construct(
         private readonly ScopeMatcher $scopeMatcher,
         private readonly TemplateHelper $templateHelper,
+        private readonly TokenChecker $tokenChecker,
     ) {
     }
 
@@ -31,7 +33,8 @@ class PageTeasersModule extends AbstractFrontendModuleController
         }
 
         $teaserTemplate = new FrontendTemplate($teaserTemplateName);
-        $pages = PageModel::findPublishedByPid($model->pid);
+
+        $pages = PageModel::findPublishedByPid($model->rootPage, $this->tokenChecker->hasFrontendUser() ? ['having' => 'guests = 0'] : []);
 
         if (!$pages) {
             return new Response('');
