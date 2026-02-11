@@ -4,25 +4,23 @@ declare(strict_types=1);
 
 namespace Oneup\ContaoPageTeaserBundle\Helper;
 
-use Contao\CoreBundle\Image\Studio\Studio;
 use Contao\CoreBundle\InsertTag\InsertTagParser;
+use Contao\CoreBundle\Routing\ContentUrlGenerator;
 use Contao\FrontendTemplate;
 use Contao\Model\Collection;
 use Contao\PageModel;
 use Contao\StringUtil;
+use Symfony\Component\Routing\Generator\UrlGeneratorInterface;
 
 class TemplateHelper
 {
-    protected $fileHelper;
-
-    public function __construct(FileHelper $fileHelper, Studio $studio, InsertTagParser $insertTagParser)
-    {
-        $this->fileHelper = $fileHelper;
-        $this->studio = $studio;
-        $this->insertTagParser = $insertTagParser;
+    public function __construct(
+        private readonly InsertTagParser $insertTagParser,
+        private readonly ContentUrlGenerator $contentUrlGenerator,
+    ) {
     }
 
-    public function addTeasersToTemplate(FrontendTemplate $template, Collection $teasers = null)
+    public function addTeasersToTemplate(FrontendTemplate $template, ?Collection $teasers = null): FrontendTemplate
     {
         if (!$teasers) {
             $template->teasers = [];
@@ -43,40 +41,12 @@ class TemplateHelper
 
             if ($teaser instanceof PageModel) {
                 try {
-                    $teaser->url = $teaser->getFrontendUrl();
+                    $teaser->url = $this->contentUrlGenerator->generate($teaser, [], UrlGeneratorInterface::ABSOLUTE_URL);
                 } catch (\Exception $e) {
                 }
             }
 
             $teasers[] = $teaser;
-
-            // Skip if no image is around
-            if (!$teaser->singleSRC) {
-                continue;
-            }
-
-            $teaser->singleSRC = $this->fileHelper->getFileFromUuid($teaser);
-
-            // Skip again, if still no file around
-            if (!$teaser->singleSRC) {
-                continue;
-            }
-
-            $figure = $this->studio->createFigureBuilder()
-                ->fromPath($teaser->singleSRC, false)
-                ->setSize($teaser->size)
-                ->buildIfResourceExists()
-            ;
-
-            if (null === $figure) {
-                continue;
-            }
-
-            $objImage = new \stdClass();
-
-            $figure->applyLegacyTemplateData($objImage);
-
-            $teaser->previewImage = $objImage;
         }
 
         $template->teasers = $teasers;

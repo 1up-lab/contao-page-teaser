@@ -7,20 +7,14 @@ namespace Oneup\ContaoPageTeaserBundle\Helper;
 use Contao\BackendUser;
 use Contao\Controller;
 use Contao\CoreBundle\Image\ImageSizes;
-use Doctrine\DBAL\Connection;
 use Symfony\Component\Security\Core\Authentication\Token\Storage\TokenStorageInterface;
 
 class DcaHelper
 {
-    protected $database;
-    protected $tokenStorage;
-    protected $imageSizes;
-
-    public function __construct(Connection $database, TokenStorageInterface $tokenStorage, ImageSizes $imageSizes)
-    {
-        $this->database = $database;
-        $this->tokenStorage = $tokenStorage;
-        $this->imageSizes = $imageSizes;
+    public function __construct(
+        private readonly TokenStorageInterface $tokenStorage,
+        private readonly ImageSizes $imageSizes
+    ) {
     }
 
     /**

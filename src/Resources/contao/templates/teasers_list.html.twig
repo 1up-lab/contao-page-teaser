@@ -1,0 +1,23 @@
+{% use '@Contao/component/_picture.html.twig' %}
+
+<ul>
+    {% for teaser in teasers %}
+        <li>
+            <a href="{{ teaser.url }}" title="{{ teaser.title }}"{% if teaser.target %} target="_blank"{% endif %}>
+                {{ teaser.title }}
+
+                {% if teaser.addImage %}
+                    {% set image = figure(teaser.singleSRC, teaser.size|default, {
+                        metadata: { alt: teaser.alt|default },
+                    }) %}
+
+                    {% if image %}
+                        {% with {figure: image} %}{{ block('picture_component') }}{% endwith %}
+                    {% endif %}
+                {% endif %}
+            </a>
+
+            <span class="preview">{{ teaser.previewText|raw }}</span>
+        </li>
+    {% endfor %}
+</ul>
