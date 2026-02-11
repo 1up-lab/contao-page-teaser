@@ -16,27 +16,27 @@
         {
             "name": "David Greminger",
             "email": "dg@1up.io",
-            "homepage": "http://1up.io",
+            "homepage": "https://1up.io",
             "role": "Developer"
         },
         {
             "name": "Jim Schmid",
             "email": "js@1up.io",
-            "homepage": "http://1up.io",
+            "homepage": "https://1up.io",
             "role": "Developer"
         }
     ],
     "require": {
-        "php": ">=7.2",
-        "contao/core-bundle": "^4.13 || ^5.3"
+        "php": "^8.4",
+        "contao/core-bundle": "^5.3",
+        "php-http/guzzle7-adapter": "^1.1"
     },
     "conflict": {
         "contao/manager-plugin": "<2.0 || >=3.0"
     },
     "require-dev": {
-        "contao/manager-plugin": "^2.0",
-        "friendsofphp/php-cs-fixer": "^2.15",
-        "php-http/guzzle6-adapter": "^1.1"
+        "contao/manager-plugin": "^2.13",
+        "friendsofphp/php-cs-fixer": "^3.93.0"
     },
     "extra": {
         "contao-manager-plugin": "Oneup\\ContaoPageTeaserBundle\\ContaoManager\\Plugin"
@@ -52,5 +52,12 @@
         "issues": "https://github.com/1up-lab/contao-page-teaser/issues",
         "slack": "https://contao.slack.com",
         "source": "https://github.com/1up-lab/contao-page-teaser"
+    },
+    "config": {
+        "allow-plugins": {
+            "contao-components/installer": true,
+            "php-http/discovery": true,
+            "contao/manager-plugin": true
+        }
     }
 }

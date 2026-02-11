@@ -6,27 +6,24 @@ namespace Oneup\ContaoPageTeaserBundle\FrontendModule;
 
 use Contao\CoreBundle\Controller\FrontendModule\AbstractFrontendModuleController;
 use Contao\CoreBundle\Routing\ScopeMatcher;
+use Contao\CoreBundle\Twig\FragmentTemplate;
 use Contao\Database;
 use Contao\FrontendTemplate;
 use Contao\ModuleModel;
 use Contao\StringUtil;
-use Contao\Template;
 use Oneup\ContaoPageTeaserBundle\Helper\TemplateHelper;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 
 class PageTeasersIndividualModule extends AbstractFrontendModuleController
 {
-    protected $scopeMatcher;
-    protected $templateHelper;
-
-    public function __construct(ScopeMatcher $scopeMatcher, TemplateHelper $templateHelper)
-    {
-        $this->scopeMatcher = $scopeMatcher;
-        $this->templateHelper = $templateHelper;
+    public function __construct(
+        private readonly ScopeMatcher $scopeMatcher,
+        private readonly TemplateHelper $templateHelper,
+    ) {
     }
 
-    protected function getResponse(Template $template, ModuleModel $model, Request $request): Response
+    protected function getResponse(FragmentTemplate $template, ModuleModel $model, Request $request): Response
     {
         $teaserTemplateName = 'teasers_list';
 

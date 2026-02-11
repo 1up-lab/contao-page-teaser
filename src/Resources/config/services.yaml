@@ -31,7 +31,6 @@ services:
         class: Oneup\ContaoPageTeaserBundle\Helper\DcaHelper
         public: true
         arguments:
-            - "@doctrine.dbal.default_connection"
             - "@security.token_storage"
             - "@contao.image.image_sizes"
 
@@ -43,6 +42,5 @@ services:
     oneup.page_teasers.template_helper:
         class: Oneup\ContaoPageTeaserBundle\Helper\TemplateHelper
         arguments:
-            - "@oneup.page_teasers.file_helper"
-            - "@contao.image.studio"
             - "@contao.insert_tag.parser"
+            - "@contao.routing.content_url_generator"

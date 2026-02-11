@@ -6,26 +6,23 @@ namespace Oneup\ContaoPageTeaserBundle\FrontendModule;
 
 use Contao\CoreBundle\Controller\FrontendModule\AbstractFrontendModuleController;
 use Contao\CoreBundle\Routing\ScopeMatcher;
+use Contao\CoreBundle\Twig\FragmentTemplate;
 use Contao\FrontendTemplate;
 use Contao\ModuleModel;
 use Contao\PageModel;
-use Contao\Template;
 use Oneup\ContaoPageTeaserBundle\Helper\TemplateHelper;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 
 class PageTeasersModule extends AbstractFrontendModuleController
 {
-    protected $scopeMatcher;
-    protected $templateHelper;
-
-    public function __construct(ScopeMatcher $scopeMatcher, TemplateHelper $templateHelper)
-    {
-        $this->scopeMatcher = $scopeMatcher;
-        $this->templateHelper = $templateHelper;
+    public function __construct(
+        private readonly ScopeMatcher $scopeMatcher,
+        private readonly TemplateHelper $templateHelper,
+    ) {
     }
 
-    protected function getResponse(Template $template, ModuleModel $model, Request $request): Response
+    protected function getResponse(FragmentTemplate $template, ModuleModel $model, Request $request): Response
     {
         $teaserTemplateName = 'teasers_list';
 
@@ -34,8 +31,7 @@ class PageTeasersModule extends AbstractFrontendModuleController
         }
 
         $teaserTemplate = new FrontendTemplate($teaserTemplateName);
-
-        $pages = PageModel::findPublishedSubpagesWithoutGuestsByPid($model->rootPage, $model->showHidden);
+        $pages = PageModel::findPublishedByPid($model->pid);
 
         if (!$pages) {
             return new Response('');
