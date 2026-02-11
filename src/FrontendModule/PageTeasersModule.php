@@ -37,7 +37,7 @@ class PageTeasersModule extends AbstractFrontendModuleController
             return new Response('');
         }
 
-        $template->teasers = $this->templateHelper->addTeasersToTemplate($teaserTemplate, $pages)->parse();
+        $template->set('teasers', $this->templateHelper->addTeasersToTemplate($teaserTemplate, $pages)->parse());
 
         return $template->getResponse();
     }
