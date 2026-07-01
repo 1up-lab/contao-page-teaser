@@ -34,7 +34,13 @@ class PageTeasersModule extends AbstractFrontendModuleController
 
         $teaserTemplate = new FrontendTemplate($teaserTemplateName);
 
-        $pages = PageModel::findPublishedByPid($model->rootPage, $this->tokenChecker->hasFrontendUser() ? ['having' => 'guests = 0'] : []);
+        $options = ['order' => 'sorting'];
+        
+        if ($this->tokenChecker->hasFrontendUser()) {
+            $options['having'] = 'guests = 0';
+        }
+
+        $pages = PageModel::findPublishedByPid($model->rootPage, $options);
 
         if (!$pages) {
             return new Response('');
