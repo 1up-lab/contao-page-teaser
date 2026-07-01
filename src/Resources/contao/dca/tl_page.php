@@ -62,6 +62,7 @@ $GLOBALS['TL_DCA']['tl_page']['fields'] = [
             ],
             'sql' => [
                 'type' => Doctrine\DBAL\Types\Types::STRING,
+                'length' => 255,
                 'default' => '',
             ],
         ],
@@ -76,6 +77,7 @@ $GLOBALS['TL_DCA']['tl_page']['fields'] = [
             ],
             'sql' => [
                 'type' => Doctrine\DBAL\Types\Types::STRING,
+                'length' => 255,
                 'default' => '',
             ],
         ],
